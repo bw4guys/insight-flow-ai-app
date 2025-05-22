@@ -20,7 +20,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Toaster />
         <Sonner />
         <div className="flex min-h-screen w-full">
-          <Sidebar collapsed={isMobile}>
+          <Sidebar defaultCollapsed={isMobile}>
             <SidebarHeader className="p-4">
               <div className="flex items-center space-x-2">
                 <div className="h-8 w-8 rounded-full bg-brand-teal flex items-center justify-center text-white font-bold">RI</div>
