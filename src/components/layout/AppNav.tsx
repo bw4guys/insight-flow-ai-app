@@ -81,7 +81,7 @@ const AppNav: React.FC = () => {
             {mainNavItems.map((item) => (
               <SidebarMenuItem key={item.path}>
                 <SidebarMenuButton 
-                  active={isActive(item.path)}
+                  data-active={isActive(item.path)}
                   onClick={() => navigate(item.path)}
                 >
                   <item.icon className="w-5 h-5 mr-3" />
@@ -100,7 +100,7 @@ const AppNav: React.FC = () => {
             {adminNavItems.map((item) => (
               <SidebarMenuItem key={item.path}>
                 <SidebarMenuButton 
-                  active={isActive(item.path)}
+                  data-active={isActive(item.path)}
                   onClick={() => navigate(item.path)}
                 >
                   <item.icon className="w-5 h-5 mr-3" />

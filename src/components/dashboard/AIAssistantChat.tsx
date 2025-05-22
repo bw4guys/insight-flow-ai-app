@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import DashboardCard from './DashboardCard';
 import { aiChatHistory, Message } from '@/services/mockData';
 import { Separator } from '@/components/ui/separator';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 
 const AIAssistantChat: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>(aiChatHistory);
@@ -23,7 +23,7 @@ const AIAssistantChat: React.FC = () => {
     if (!inputValue.trim()) return;
     
     // Add user message
-    const userMessage: Message = { role: 'user', content: inputValue };
+    const userMessage: Message = { role: "user", content: inputValue };
     setMessages(prev => [...prev, userMessage]);
     setInputValue('');
     setIsLoading(true);
@@ -51,7 +51,7 @@ const AIAssistantChat: React.FC = () => {
         response = "I'm your Retail Intelligence assistant. I can help with sales analysis, inventory recommendations, weather impact predictions, and upcoming event information. What specific insights do you need today?";
       }
       
-      const aiMessage: Message = { role: 'assistant', content: response };
+      const aiMessage: Message = { role: "assistant", content: response };
       setMessages(prev => [...prev, aiMessage]);
       setIsLoading(false);
     }, 1500);

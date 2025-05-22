@@ -8,6 +8,8 @@ interface DashboardCardProps {
   icon?: React.ReactNode;
   className?: string;
   children: React.ReactNode;
+  loading?: boolean;
+  actionButton?: React.ReactNode;
 }
 
 const DashboardCard: React.FC<DashboardCardProps> = ({ 
@@ -15,7 +17,9 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
   description, 
   icon, 
   className = '',
-  children 
+  children,
+  loading = false,
+  actionButton
 }) => {
   return (
     <Card className={`shadow-md hover:shadow-lg transition-all animate-fade-in ${className}`}>
@@ -24,10 +28,19 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
           <CardTitle className="text-lg font-semibold">{title}</CardTitle>
           {description && <CardDescription>{description}</CardDescription>}
         </div>
-        {icon && <div>{icon}</div>}
+        <div className="flex items-center space-x-2">
+          {actionButton}
+          {icon && <div>{icon}</div>}
+        </div>
       </CardHeader>
       <CardContent>
-        {children}
+        {loading ? (
+          <div className="flex items-center justify-center p-6">
+            <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full" />
+          </div>
+        ) : (
+          children
+        )}
       </CardContent>
     </Card>
   );
